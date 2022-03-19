@@ -1,8 +1,10 @@
 import os
+import pickle
 
-#This Encoding is done based on values from array below.
-#if the letter is a then it's 71, 64 for d, 90 for i etc etc...
-this_array = [["a",71],["b",82],["c",93],["d",64],["e",55],["f",73],["g",67],["h",80],["i",90],["j",10],["k",11],["l",12],["m",13],["n",14],["o",15],["p",16],["q",17],["r",18],["s",19],["t",20],["u",21],["v",22],["w",23],["x",24],["y",25],["z",26],[".",79],["A",27],["B",28],["C",29],["D",74],["E",30],["F",31],["G",32],["H",33],["I",34],["J",35],["K",36],["L",37],["M",38],["N",39],["O",40],["P",41],["Q",42],["R",43],["S",44],["T",45],["U",46],["V",47],["W",48],["X",49],["Y",50],["Z",51],['0',88],['1',70],['2',60],['3',94],['4',95],['5',96],['6',97],['7',98],['8',99],['9',89],['_',83],[' ',75],['\'',72]]
+#This Encoding is done based on values from array saved in the pickle file.
+
+pickle_in = open("datasets.pickle","rb")
+this_array = pickle.load(pickle_in)
 
 #The below function reverses the encoding procedure
 def revertor(encod):
