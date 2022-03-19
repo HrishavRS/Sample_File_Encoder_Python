@@ -39,9 +39,8 @@ def dir_search(location):
     location = []
     folders = []
     for item in current_dir:
-        itemPath = change_dir + "/" + item
         item = item.split(".")
-        if os.path.isdir(itemPath) == False:
+        if (len(item)>1):
             location.append(item[0]+"."+item[1])
             Total_files.append(item[0]+"."+item[1])
         else:
