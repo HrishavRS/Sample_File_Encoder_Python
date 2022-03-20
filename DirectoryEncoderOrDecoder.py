@@ -76,6 +76,8 @@ def dir_decoder(location):
         encoded_name = item
         original_name = revertor(item)
         os.rename(encoded_name,original_name)
+        Total_files.append(file_name)
+
     updated_current_dir = os.listdir()
     for item in updated_current_dir:
         item = item.split(".")

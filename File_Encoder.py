@@ -1,4 +1,4 @@
-from Directory import Total_files, dir_search,dir_decoder,dir_encoder
+from DirectoryEncoderOrDecoder import Total_files, dir_search,dir_decoder,dir_encoder
 
 def front_face_code():
     request = input("Decode or Encode or Search?: ")
