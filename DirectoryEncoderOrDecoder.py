@@ -10,20 +10,17 @@ def dir_search(location):
     location = []
     folders = []
     for item in current_dir:
-        item = item.split(".")
-        if (len(item)>1):
-            file_name = item[0]+"."+item[1]
-            location.append(file_name)
-            Total_files.append(file_name)
-            # new_name = convertor(file_name)
-            # os.rename(file_name,new_name)
-        else:
-            folder_name = item[0]
-            location.append(folder_name)
-            Total_files.append(folder_name)
+        if (os.path.isdir(item)):
+            location.append(item)
+            Total_files.append(item)
             # new_name = convertor(folder_name)
             # os.rename(folder_name,new_name)
-            folders.append(folder_name)
+            folders.append(item)
+        else:
+            location.append(item)
+            Total_files.append(item)
+            # new_name = convertor(file_name)
+            # os.rename(file_name,new_name)
 
     print(f"\nTotal Files in {change_dir} = {len(location)}")
     if(len(folders)!=0):
@@ -42,20 +39,18 @@ def dir_encoder(location):
     location = []
     folders = []
     for item in current_dir:
-        item = item.split(".")
-        if(len(item)>1):
-            file_name = item[0]+"."+item[1]
-            location.append(file_name)
-            Total_files.append(file_name)
-            new_name = convertor(file_name)
-            os.rename(file_name,new_name)
-        else:
-            folder_name = item[0]
-            location.append(folder_name)
-            new_name = convertor(folder_name)
+        if(os.path.isdir(item)):
+            location.append(item)
+            new_name = convertor(item)
             Total_files.append(new_name)
             folders.append(new_name)
-            os.rename(folder_name,new_name)
+            os.rename(item,new_name)
+
+        else:
+            location.append(item)
+            Total_files.append(item)
+            new_name = convertor(item)
+            os.rename(item,new_name)
 
     print(f"\nTotal Files in {change_dir} = {len(location)}")
     if(len(folders)!=0):
@@ -80,9 +75,8 @@ def dir_decoder(location):
 
     updated_current_dir = os.listdir()
     for item in updated_current_dir:
-        item = item.split(".")
-        if(len(item) == 1):
-            folders.append(item[0])
+        if(os.path.isdir(item)):
+            folders.append(item)
     if(len(folders)!=0):
         print(f"Folder Present in {change_dir} = YES \nTotal Amount of Folder Present = {len(folders)}")
         for folder in folders:
