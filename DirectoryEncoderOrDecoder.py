@@ -32,7 +32,7 @@ def dir_search(location):
         print(f"Folder Present in {change_dir} = NO\n")      
 
     
-def dir_encoder(location):
+def dir_encrypt(location):
     change_dir = location
     os.chdir(change_dir)
     current_dir = os.listdir()
@@ -57,11 +57,11 @@ def dir_encoder(location):
         print(f"Folder Present in {change_dir} = YES \nTotal Amount of Folder Present = {len(folders)}")
         for folder in folders:
             new_dir = change_dir + "/"+ folder
-            dir_encoder(new_dir)
+            dir_encrypt(new_dir)
     else:
         print(f"Folder Present in {change_dir} = NO\n")
      
-def dir_decoder(location):
+def dir_decrypt(location):
     change_dir = location
     os.chdir(change_dir)
     current_dir = os.listdir()
@@ -71,7 +71,7 @@ def dir_decoder(location):
         encoded_name = item
         original_name = revertor(item)
         os.rename(encoded_name,original_name)
-        Total_files.append(file_name)
+        Total_files.append(item)
 
     updated_current_dir = os.listdir()
     for item in updated_current_dir:
@@ -82,7 +82,7 @@ def dir_decoder(location):
         for folder in folders:
             print(folder)
             new_dir = change_dir + "/"+folder
-            dir_decoder(new_dir)
+            dir_decrypt(new_dir)
     else:
         print(f"Folder Present in {change_dir} = NO\n")
 

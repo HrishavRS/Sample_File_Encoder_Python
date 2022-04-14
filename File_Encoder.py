@@ -1,22 +1,22 @@
-from DirectoryEncoderOrDecoder import Total_files, dir_search,dir_decoder,dir_encoder
+from DirectoryEncoderOrDecoder import Total_files, dir_decrypt, dir_encrypt, dir_search
 
 def front_face_code():
-    request = input("Decode or Encode or Search?: ")
+    request = input("Decrypt or Encrypt or Search?: ")
     request=request.lower()
 
-    if(request == "decode"):
-        user_dir= input("Enter your file directory to Decode: ")
+    if(request == "decrypt"):
+        user_dir= input("Enter your file directory to Decrypt: ")
         try:
-            dir_decoder(user_dir)
-            print(f"Total Files Decoded = {len(Total_files)}")
+            dir_decrypt(user_dir)
+            print(f"Total Files Decrypted = {len(Total_files)}")
         except:
             print("Something went wrong!")
 
-    elif(request == 'encode'):
-        user_dir = input("Enter your file directory to Encode: ")
+    elif(request == 'encrypt'):
+        user_dir = input("Enter your file directory to Encrypt: ")
         try:
-            dir_encoder(user_dir)
-            print(f"Total Files Encoded = {len(Total_files)}")
+            dir_encrypt(user_dir)
+            print(f"Total Files Encrypted = {len(Total_files)}")
         except:
             print("Something went wrong")
     elif(request == 'search'):
@@ -27,10 +27,12 @@ def front_face_code():
         except:
             print("Something Went Wrong")
     else:
-        print("\nPlease Enter valid request from | Encode | Decode | Search |")
+        print("\nPlease Enter valid request from | Encrypt | Decrypt | Search |")
         front_face_code()
 
-front_face_code()
+
+if __name__ =="__main__":
+    front_face_code()
 
 
  
