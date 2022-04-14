@@ -36,3 +36,11 @@ def convertor(filename):
 				concat_form = ''.join(map(str,final_array))
 	return concat_form
 
+def convertor_test(filename):
+	counter=0
+	for item in list(filename):
+		for index in this_array:
+			if(item == index[0]):
+				counter+=1
+	unknown_characters = len(list(filename))-counter			
+	return unknown_characters

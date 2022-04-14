@@ -1,8 +1,9 @@
 import os
-from EncoderAndDecoder import convertor, revertor
+from EncoderAndDecoder import convertor, revertor, convertor_test
 import pickle
 
 Total_files = []
+Total_UnEncryptable_Files = []
 def dir_search(location):
     change_dir = location
     os.chdir(change_dir)
@@ -31,6 +32,47 @@ def dir_search(location):
     else:
         print(f"Folder Present in {change_dir} = NO\n")      
 
+def dir_encrypt_test(location):
+    change_dir = location
+    os.chdir(change_dir)
+    current_dir = os.listdir()
+    location = []
+    folders = []
+    unEncryptable_files = []
+    for item in current_dir:
+        if(os.path.isdir(item)):
+            location.append(item)
+            test = convertor_test(item)
+            Total_files.append(item)
+            folders.append(item)
+            if(test>0):
+                unEncryptable_files.append(item)
+                Total_UnEncryptable_Files.append(item)
+
+        else:
+            location.append(item)
+            test = convertor_test(item)
+            Total_files.append(item)
+            if(test>0):
+                unEncryptable_files.append(item)
+                Total_UnEncryptable_Files.append(item)
+
+    print(f"\nTotal Files in {change_dir} = {len(location)}")
+    if(len(unEncryptable_files)!=0):
+        print(f"Total UnEncryptable Files in '{change_dir}' = {len(unEncryptable_files)}")
+        print(f"Total UnEncryptable Files are =")
+        for item in unEncryptable_files:
+            print(f"{item}")
+    else:
+        print(f"No UnEncryptable Files in {change_dir}")
+    
+    if(len(folders)!=0):
+        print(f"Folder Present in {change_dir} = YES \nTotal Amount of Folder Present = {len(folders)}")
+        for folder in folders:
+            new_dir = change_dir + "/"+ folder
+            dir_encrypt_test(new_dir)
+    else:
+        print(f"Folder Present in {change_dir} = NO\n")
     
 def dir_encrypt(location):
     change_dir = location
