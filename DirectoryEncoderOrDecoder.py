@@ -23,14 +23,14 @@ def dir_search(location):
             # new_name = convertor(file_name)
             # os.rename(file_name,new_name)
 
-    print(f"\nTotal Files in {change_dir} = {len(location)}")
+    print(f"\nTotal Files in '{change_dir}' = {len(location)}")
     if(len(folders)!=0):
-        print(f"Folder Present in {change_dir} = YES \nTotal Amount of Folder Present = {len(folders)}")
+        print(f"\tFolder Present in '{change_dir}' = YES \n\tTotal Amount of Folder Present = {len(folders)}")
         for folder in folders:
             new_dir = change_dir + "/"+ folder
             dir_search(new_dir)
     else:
-        print(f"Folder Present in {change_dir} = NO\n")      
+        print(f"\tFolder Present in '{change_dir}' = NO\n")      
 
 def dir_encrypt_test(location):
     change_dir = location
@@ -59,20 +59,22 @@ def dir_encrypt_test(location):
 
     print(f"\nTotal Files in {change_dir} = {len(location)}")
     if(len(unEncryptable_files)!=0):
-        print(f"Total UnEncryptable Files in '{change_dir}' = {len(unEncryptable_files)}")
-        print(f"Total UnEncryptable Files are =")
+        print(f"\tTotal UnEncryptable Files in '{change_dir}' = {len(unEncryptable_files)}")
+        print(f"\tTotal UnEncryptable Files are =\n")
         for item in unEncryptable_files:
-            print(f"{item}")
+            print(f"\t{item}")
+        print("\n")
+
     else:
-        print(f"No UnEncryptable Files in {change_dir}")
+        print(f"\tNo UnEncryptable Files in '{change_dir}'")
     
     if(len(folders)!=0):
-        print(f"Folder Present in {change_dir} = YES \nTotal Amount of Folder Present = {len(folders)}")
+        print(f"\tFolder Present in '{change_dir}' = YES \nTotal Amount of Folder Present = {len(folders)}")
         for folder in folders:
             new_dir = change_dir + "/"+ folder
             dir_encrypt_test(new_dir)
     else:
-        print(f"Folder Present in {change_dir} = NO\n")
+        print(f"\tFolder Present in '{change_dir}' = NO\n")
     
 def dir_encrypt(location):
     change_dir = location
@@ -94,14 +96,14 @@ def dir_encrypt(location):
             new_name = convertor(item)
             os.rename(item,new_name)
 
-    print(f"\nTotal Files in {change_dir} = {len(location)}")
+    print(f"\nTotal Files in '{change_dir}' = {len(location)}")
     if(len(folders)!=0):
-        print(f"Folder Present in {change_dir} = YES \nTotal Amount of Folder Present = {len(folders)}")
+        print(f"\tFolder Present in '{change_dir}' = YES \n\tTotal Amount of Folder Present = {len(folders)}")
         for folder in folders:
             new_dir = change_dir + "/"+ folder
             dir_encrypt(new_dir)
     else:
-        print(f"Folder Present in {change_dir} = NO\n")
+        print(f"\tFolder Present in '{change_dir}' = NO\n")
      
 def dir_decrypt(location):
     change_dir = location
@@ -120,13 +122,13 @@ def dir_decrypt(location):
         if(os.path.isdir(item)):
             folders.append(item)
     if(len(folders)!=0):
-        print(f"Folder Present in {change_dir} = YES \nTotal Amount of Folder Present = {len(folders)}")
+        print(f"Folder Present in '{change_dir}' = YES \n\tTotal Amount of Folder Present = {len(folders)}")
         for folder in folders:
             print(folder)
             new_dir = change_dir + "/"+folder
             dir_decrypt(new_dir)
     else:
-        print(f"Folder Present in {change_dir} = NO\n")
+        print(f"\tFolder Present in '{change_dir}' = NO\n")
 
 
 

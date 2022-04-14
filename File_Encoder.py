@@ -4,7 +4,7 @@ def front_face_code():
     request = input("Decrypt or Encrypt or Search?: ")
     request=request.lower()
 
-    if(request == "decrypt"):
+    if(request == "decrypt" or request == 'd'):
         user_dir= input("Enter your file directory to Decrypt: ")
         try:
             dir_decrypt(user_dir)
@@ -14,7 +14,7 @@ def front_face_code():
         except:
             print("Something went wrong!")
 
-    elif(request == 'encrypt'):
+    elif(request == 'encrypt' or request == 'e'):
         test_request = input("Do you want to 'Check For Success' before executing Encryption? (Y/N): ")
         test_request = test_request.lower()
         try:
@@ -37,7 +37,7 @@ def front_face_code():
                     print("\n\t\t\t🗸🗸🗸🗸 SAFE TO PERFORM ENCRYPTION 🗸🗸🗸🗸🗸\n")
         except:
             print("Something went wrong")
-    elif(request == 'search'):
+    elif(request == 'search' or request == 's'):
         user_dir = input("Enter your file directory to Search: ")
         try:
             dir_search(user_dir)
