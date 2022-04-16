@@ -26,7 +26,7 @@ def front_face_code():
                     print(f"Total Files Encrypted = {len(Total_files)}")
                 if(warning.lower()=='n'):
                     front_face_code()
-            else:
+            elif(test_request == 'y'):
                 user_dir = input("Enter your directory to Encrypt to 'Check For Success': ")
                 dir_encrypt_test(user_dir)
                 print(f"Total Files ={len(Total_files)}")
@@ -35,6 +35,10 @@ def front_face_code():
                     print("\n\t\t\tXXXXX UNSAFE TO PERFORM ENCRYPTION HERE XXXX\n")
                 else:
                     print("\n\t\t\t🗸🗸🗸🗸 SAFE TO PERFORM ENCRYPTION 🗸🗸🗸🗸🗸\n")
+            else:
+                print("Please Enter a Valid Option")
+                front_face_code()
+                
         except:
             print("Something went wrong")
     elif(request == 'search' or request == 's'):
