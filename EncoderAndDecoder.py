@@ -38,9 +38,12 @@ def convertor(filename):
 
 def convertor_test(filename):
 	counter=0
+	rename_overflow=False
+	if(len(filename)>120):
+		rename_overflow=True
 	for item in list(filename):
 		for index in this_array:
 			if(item == index[0]):
 				counter+=1
 	unknown_characters = len(list(filename))-counter			
-	return unknown_characters
+	return unknown_characters,rename_overflow

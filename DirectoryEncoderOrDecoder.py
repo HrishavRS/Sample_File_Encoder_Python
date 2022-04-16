@@ -42,18 +42,18 @@ def dir_encrypt_test(location):
     for item in current_dir:
         if(os.path.isdir(item)):
             location.append(item)
-            test = convertor_test(item)
+            test,rename_overflow = convertor_test(item)
             Total_files.append(item)
             folders.append(item)
-            if(test>0):
+            if(test>0 or rename_overflow == True):
                 unEncryptable_files.append(item)
                 Total_UnEncryptable_Files.append(item)
 
         else:
             location.append(item)
-            test = convertor_test(item)
+            test,rename_overflow = convertor_test(item)
             Total_files.append(item)
-            if(test>0):
+            if(test>0 or rename_overflow == True):
                 unEncryptable_files.append(item)
                 Total_UnEncryptable_Files.append(item)
 
@@ -129,8 +129,6 @@ def dir_decrypt(location):
             dir_decrypt(new_dir)
     else:
         print(f"\tFolder Present in '{change_dir}' = NO\n")
-
-
 
 # dir_search(user_dir)
 # dir_encoder(user_dir)
