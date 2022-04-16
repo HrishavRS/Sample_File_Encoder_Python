@@ -45,7 +45,7 @@ def dir_encrypt_test(location):
             test,rename_overflow = convertor_test(item)
             Total_files.append(item)
             folders.append(item)
-            if(test>0 or rename_overflow == True):
+            if(test>0 or rename_overflow):
                 unEncryptable_files.append(item)
                 Total_UnEncryptable_Files.append(item)
 
@@ -53,14 +53,14 @@ def dir_encrypt_test(location):
             location.append(item)
             test,rename_overflow = convertor_test(item)
             Total_files.append(item)
-            if(test>0 or rename_overflow == True):
+            if(test>0 or rename_overflow):
                 unEncryptable_files.append(item)
                 Total_UnEncryptable_Files.append(item)
 
     print(f"\nTotal Files in {change_dir} = {len(location)}")
     if(len(unEncryptable_files)!=0):
         print(f"\tTotal UnEncryptable Files in '{change_dir}' = {len(unEncryptable_files)}")
-        print(f"\tTotal UnEncryptable Files are =\n")
+        print(f"\tTotal UnEncryptable Files are =")
         for item in unEncryptable_files:
             print(f"\t{item}")
         print("\n")
@@ -69,7 +69,7 @@ def dir_encrypt_test(location):
         print(f"\tNo UnEncryptable Files in '{change_dir}'")
     
     if(len(folders)!=0):
-        print(f"\tFolder Present in '{change_dir}' = YES \nTotal Amount of Folder Present = {len(folders)}")
+        print(f"\tFolder Present in '{change_dir}' = YES \n\tTotal Amount of Folder Present = {len(folders)}")
         for folder in folders:
             new_dir = change_dir + "/"+ folder
             dir_encrypt_test(new_dir)

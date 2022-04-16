@@ -32,9 +32,9 @@ def front_face_code():
                 print(f"Total Files ={len(Total_files)}")
                 print(f"Total UnEncryptable Files = {len(Total_UnEncryptable_Files)}")
                 if(len(Total_UnEncryptable_Files)>0):
-                    print("\n\t\t\tXXXXX UNSAFE TO PERFORM ENCRYPTION HERE XXXX\n")
+                    print("\n\t\t\t\tXXXXX UNSAFE TO PERFORM ENCRYPTION HERE XXXX\n")
                 else:
-                    print("\n\t\t\t🗸🗸🗸🗸 SAFE TO PERFORM ENCRYPTION 🗸🗸🗸🗸🗸\n")
+                    print("\n\t\t\t\t🗸🗸🗸🗸 SAFE TO PERFORM ENCRYPTION 🗸🗸🗸🗸🗸\n")
             else:
                 print("Please Enter a Valid Option")
                 front_face_code()
